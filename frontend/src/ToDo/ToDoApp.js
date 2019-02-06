@@ -27,7 +27,7 @@ class ToDoApp extends React.Component {
         axios.post(Config.domain + "/task/", {
             description: descp,
             finished: false
-        })
+        }, {headers: { Authorization: `Bearer ${localStorage.authToken}`} })
         .then((res) => {
             // update the state
             this.setState(prevState => {
@@ -58,7 +58,7 @@ class ToDoApp extends React.Component {
             if (finish !== null) {
                 axios.put(Config.domain + "/task/" + id, {
                     finished: finish
-                })
+                }, {headers: { Authorization: `Bearer ${localStorage.authToken}`} })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
             }
@@ -68,7 +68,7 @@ class ToDoApp extends React.Component {
 
     taskClearHandler(id) {
 
-        axios.delete(Config.domain + "/task/" + id)
+        axios.delete(Config.domain + "/task/" + id, {headers: { Authorization: `Bearer ${localStorage.authToken}`} })
             .then(() => {
                 // after the task is deleted we need to rerender the whole list
                 this.setState(prevState => ({
@@ -89,7 +89,7 @@ class ToDoApp extends React.Component {
 
         axios.put(Config.domain + "/task/" + id, {
             description: new_descp
-        })
+        }, {headers: { Authorization: `Bearer ${localStorage.authToken}`} })
         .then(res => console.log(res))
         .catch(err => console.log(err));
     }

@@ -1,6 +1,6 @@
 import React from "react";
-import SignUp from "./components/SignUp/SignUp";
-import LogIn from "./components/LogIn/LogIn";
+import SignUp from "./SignUp/SignUp";
+import LogIn from "./LogIn/LogIn";
 
 export default class User extends React.Component {
 
@@ -16,7 +16,7 @@ export default class User extends React.Component {
 
         return (
             <div style={container}>
-                <SignUp />
+                <LogIn />
 
             </div>
         );
